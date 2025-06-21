@@ -685,60 +685,60 @@ class EnhancedVLM(nn.Module):
         return tokens
 
 
-# Example usage with enhanced configuration
-if __name__ == "__main__":
-    # Create configuration
-    config = VLMConfig(
-        img_size=224,
-        patch_size=16,
-        vision_embed_dim=768,
-        vision_num_layers=12,
-        vision_num_heads=12,
-        vocab_size=32000,
-        text_embed_dim=768,
-        text_num_layers=12,
-        text_num_heads=12,
-        text_kv_heads=1,
-        max_seq_length=2048,
-        ssm_state_dim=64,
-        ssm_hidden_dim=256,
-        ssm_num_layers=4,
-        ssm_dropout=0.1,
-        cross_attn_layers=2,
-        cross_attn_heads=8,
-        dropout=0.1,
-        layer_norm_eps=1e-5,
-    )
+# # Example usage with enhanced configuration
+# if __name__ == "__main__":
+#     # Create configuration
+#     config = VLMConfig(
+#         img_size=224,
+#         patch_size=16,
+#         vision_embed_dim=768,
+#         vision_num_layers=12,
+#         vision_num_heads=12,
+#         vocab_size=32000,
+#         text_embed_dim=768,
+#         text_num_layers=12,
+#         text_num_heads=12,
+#         text_kv_heads=1,
+#         max_seq_length=2048,
+#         ssm_state_dim=64,
+#         ssm_hidden_dim=256,
+#         ssm_num_layers=4,
+#         ssm_dropout=0.1,
+#         cross_attn_layers=2,
+#         cross_attn_heads=8,
+#         dropout=0.1,
+#         layer_norm_eps=1e-5,
+#     )
 
-    # Set device
-    device = torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
-    print(f"Using device: {device}")
+#     # Set device
+#     device = torch.device(
+#         "cuda" if torch.cuda.is_available() else "cpu"
+#     )
+#     print(f"Using device: {device}")
 
-    # Create enhanced model
-    model = EnhancedVLM(config).to(device)
+#     # Create enhanced model
+#     model = EnhancedVLM(config).to(device)
 
-    # Create sample data
-    images = torch.randn(2, 3, 224, 224).to(device)
-    tokens = torch.randint(0, 32000, (2, 10)).to(device)
-    targets = torch.randint(0, 32000, (2, 10)).to(device)
+#     # Create sample data
+#     images = torch.randn(2, 3, 224, 224).to(device)
+#     tokens = torch.randint(0, 32000, (2, 10)).to(device)
+#     targets = torch.randint(0, 32000, (2, 10)).to(device)
 
-    # Test forward pass
-    logits, loss = model(images, tokens, targets)
-    print(
-        f"Enhanced VLM - Logits shape: {logits.shape}, Loss: {loss.item():.4f}"
-    )
+#     # Test forward pass
+#     logits, loss = model(images, tokens, targets)
+#     print(
+#         f"Enhanced VLM - Logits shape: {logits.shape}, Loss: {loss.item():.4f}"
+#     )
 
-    # # Print model summary
-    # total_params = sum(p.numel() for p in model.parameters())
-    # trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    # print(f"Total parameters: {total_params:,}")
-    # print(f"Trainable parameters: {trainable_params:,}")
+#     # # Print model summary
+#     # total_params = sum(p.numel() for p in model.parameters())
+#     # trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+#     # print(f"Total parameters: {total_params:,}")
+#     # print(f"Trainable parameters: {trainable_params:,}")
 
-    # # Test generation
-    # try:
-    #     generated_tokens = model.generate(images, max_length=20, temperature=0.8, top_k=50)
-    #     print(f"Generated tokens shape: {generated_tokens.shape}")
-    # except Exception as e:
-    #     print(f"Generation failed: {e}")
+#     # # Test generation
+#     # try:
+#     #     generated_tokens = model.generate(images, max_length=20, temperature=0.8, top_k=50)
+#     #     print(f"Generated tokens shape: {generated_tokens.shape}")
+#     # except Exception as e:
+#     #     print(f"Generation failed: {e}")
