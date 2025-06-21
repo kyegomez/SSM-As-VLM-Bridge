@@ -96,6 +96,12 @@ The SSM-As-VLM-Bridge architecture consists of three main components:
 - PyTorch 2.0+
 - CUDA (optional, for GPU acceleration)
 
+### Install from PyPI (Recommended)
+
+```bash
+pip install ssm-bridge
+```
+
 ### Install from Source
 
 ```bash
