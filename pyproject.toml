@@ -3,32 +3,43 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "paper"
+name = "ssm-bridge"
 version = "0.0.1"
-description = "Paper - Pytorch"
+description = "SSM-As-VLM-Bridge: State Space Models as Vision-Language Bridge Layers"
 license = "MIT"
 authors = ["Kye Gomez <kye@apac.ai>"]
-homepage = "https://github.com/kyegomez/paper"
-documentation = "https://github.com/kyegomez/paper"  # Add this if you have documentation.
-readme = "README.md"  # Assuming you have a README.md
-repository = "https://github.com/kyegomez/paper"
-keywords = ["artificial intelligence", "deep learning", "optimizers", "Prompt Engineering"]
+homepage = "https://github.com/kyegomez/SSM-As-VLM-Bridge"
+documentation = "https://github.com/kyegomez/SSM-As-VLM-Bridge"
+readme = "README.md"
+repository = "https://github.com/kyegomez/SSM-As-VLM-Bridge"
+keywords = ["artificial intelligence", "deep learning", "vision-language", "state-space-models", "computer-vision", "natural-language-processing"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering :: Information Analysis",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.9"
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
 ]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-swarms = "*"
-zetascale = "*"
+torch = "^2.0.0"
+torchvision = "^0.15.0"
+numpy = "^1.24.0"
+pillow = "^10.0.0"
 
-[tool.poetry.dev-dependencies]
-# Add development dependencies here
-
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+black = "^23.0.0"
+ruff = "^0.1.0"
+mypy = "^1.0.0"
+pre-commit = "^3.0.0"
 
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.1.6"
@@ -39,19 +50,47 @@ black = "^23.1.0"
 types-chardet = "^5.0.4.6"
 mypy-protobuf = "^3.0.0"
 
-
 [tool.autopep8]
 max_line_length = 80
-ignore = "E501,W6"  # or ["E501", "W6"]
+ignore = "E501,W6"
 in-place = true
 recursive = true
 aggressive = 3
 
-
 [tool.ruff]
 line-length = 70
+target-version = "py310"
 
 [tool.black]
 line-length = 70
-target-version = ['py38']
+target-version = ['py310']
 preview = true
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=ssm_bridge",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml"
+]
