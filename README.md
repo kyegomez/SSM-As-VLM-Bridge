@@ -281,14 +281,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 pip install -e ".[dev]"
 
 # Run tests
-pytest tests/
-
 # Code formatting
 black .
-ruff . --fix
-
-# Type checking
-mypy ssm_bridge/
+ruff check . --fix
 ```
 
 ## 📚 Citation
@@ -312,7 +307,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **Kye Gomez** - Original research and implementation
-- **Agora Community** - Support and feedback
 - **PyTorch Team** - Excellent deep learning framework
 - **Open Source Community** - Inspiration and collaboration
 
