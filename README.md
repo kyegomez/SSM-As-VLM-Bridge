@@ -229,18 +229,21 @@ The SSM bridge introduces several innovations:
 ## 🎯 TODO & Roadmap
 
 ### Immediate Tasks (Next 2-4 weeks)
+
 - [ ] **Train Base Model**: Implement training pipeline with COCO/CC3M datasets
 - [ ] **Benchmark Performance**: Compare against CLIP, LLaVA, and other VLMs
 - [ ] **Ablation Studies**: Analyze SSM bridge effectiveness
 - [ ] **Memory Optimization**: Implement gradient checkpointing and mixed precision
 
 ### Medium-term Goals (1-3 months)
+
 - [ ] **All-SSM VLM**: Explore replacing attention with SSMs throughout
 - [ ] **Multi-modal SSM**: Extend SSM to handle multiple modalities
 - [ ] **Efficient Inference**: Optimize for real-time applications
 - [ ] **Pre-trained Models**: Release checkpoints for various scales
 
 ### Long-term Vision (3-6 months)
+
 - [ ] **Large-scale Training**: Train on web-scale datasets
 - [ ] **Zero-shot Evaluation**: Comprehensive evaluation on VQA, captioning, etc.
 - [ ] **Deployment Pipeline**: Easy deployment for production use

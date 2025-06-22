@@ -13,7 +13,7 @@ from ssm_bridge.model import (
 
 __all__ = [
     "EnhancedVLM",
-    "EnhancedVisionTransformer", 
+    "EnhancedVisionTransformer",
     "EnhancedSSMBridge",
     "VLMConfig",
     "SSMLayer",

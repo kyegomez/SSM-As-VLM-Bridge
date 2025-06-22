@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "ssm-bridge"
-version = "0.0.3"
+version = "0.0.4"
 description = "SSM-As-VLM-Bridge: State Space Models as Vision-Language Bridge Layers"
 license = "MIT"
 authors = ["Kye Gomez <kye@apac.ai>"]
