@@ -32,7 +32,7 @@ torch = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.0.0"
-ruff = "^0.1.0"
+ruff = ">=0.1,<0.13"
 
 [tool.poetry.group.lint.dependencies]
 ruff = "*"
